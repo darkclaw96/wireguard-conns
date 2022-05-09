@@ -5,7 +5,7 @@ Requires the client names to be added as comments for each Peer in /etc/wireguar
 Example:
 
 [Peer]
-# Client name ( This will be displayed)
+'# Client name ( This will be displayed)
 PublicKey = <Client public key>
 PresharedKey = <Preshared key>
 AllowedIPs = 0.0.0.0/32
