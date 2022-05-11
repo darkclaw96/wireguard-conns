@@ -2,8 +2,8 @@
 # lists connected vpn users
 set -euo pipefail
 DATE=$(date +%Y-%m-%d\ %H:%M:%S) # Define Date & Time format
-number=0
-for connected in $(wg | grep -B2 endpoint | grep peer | awk '{print $2}')
+number=0 # Variable to count clients
+for connected in $(wg | grep -B2 endpoint | grep peer | awk '{print $2}') #get all public keys from wg output and store them in the variable 'connected'
 do
   # Read client name from /etc/wireguard/wg0.conf
   client=$(grep -B2 $connected /etc/wireguard/wg0.conf|grep -v Peer| grep -v Public | awk -F '#' '{print $2}')
