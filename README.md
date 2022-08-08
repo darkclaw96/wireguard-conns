@@ -1,24 +1,37 @@
 # wireguard-conns
-Bash script to list connected clients' names instead of their public keys when using the 'wg' or 'wg show' command
 
-Requires the client names to be added as comments for each Peer in /etc/wireguard/wg0.conf
+Bash script to list connected clients' names instead of their public keys when using the **'wg'** or **'wg show'** command
 
-Example:<br />
-![Screenshot from 2022-05-09 20-09-53](https://user-images.githubusercontent.com/89162705/167471857-f63dc8a9-e019-428f-be6f-048c7e4855a8.png)
+> Requires the client names to be added as comments for each Peer in **_/etc/wireguard/wg0.conf_**
+> 
+>Example:
+>
+>```
+>[Peer]
+>#<Client_Name1>
+>PublicKey = XXXXXXXXXXXXXXXX
+>PresharedKey = XXXXXXXXXXXXXXXX
+>AllowedIPs = XXXXXXXXXXXXXXXX
+>
+>[Peer]
+>#<Client_Name2>
+>PublicKey = XXXXXXXXXXXXXXXX
+>PresharedKey = XXXXXXXXXXXXXXXX
+>AllowedIPs = XXXXXXXXXXXXXXXX
+>```
 
-Usage:<br />
-Run the script as sudo<br />
-Make an alias in .bashrc, maybe ¯\\_(ツ)_/¯
+## Usage
+Run the script as sudo[^1]
 
-Sample Output:<br />
-![Screenshot from 2022-05-09 20-11-41](https://user-images.githubusercontent.com/89162705/167471889-7cd20329-7012-43b3-98ce-ca1d2c5f6a02.png)
+#### Sample Output:
 
+```
+2022-08-08 19:40:08:	<Client_Name1>		 2 days, 21 hours, 41 seconds ago
+2022-08-08 19:40:08:	<Client_Name2>		 2 days, 21 hours, 1 minute, 27 seconds ago
 
-Source:
-https://www.reddit.com/r/WireGuard/comments/gyzzk1/quick_script_for_a_simplified_wg_show_output/
+2022-08-08 19:40:08:	2 clients connected
+```
 
-Modified to work with my current installation of Wireguard.
+Updated script based on this [reddit post](https://www.reddit.com/r/WireGuard/comments/gyzzk1/quick_script_for_a_simplified_wg_show_output/).
 
-wireguard/stable,now 1.0.20210223-1 all<br />
-wireguard-dkms/stable 1.0.20210219-1 all<br />
-wireguard-tools/stable,now 1.0.20210223-1 armhf
+[^1]: 'wg' & 'wg show' commands require sudo privileges
